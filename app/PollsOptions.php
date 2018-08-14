@@ -1,3 +1,10 @@
+<!-- 
+
+	Model: Polls Options Model
+	To handle every options for all created polls
+
+ -->
+
 <?php
 
 namespace App;

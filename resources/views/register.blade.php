@@ -1,9 +1,17 @@
+<!-- 
+
+  View Pages : Register
+  
+  This is page is to register new account
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Polling System | Log in</title>
+  <title>Polling System | Sign Up</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -47,18 +55,23 @@
         @endforeach
       @endif
 
+      <!-- FORM -->
+      <!-- Username text field -->
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="username" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+      <!-- Email text field -->
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
+      <!-- Password text field -->
       <div class="form-group has-feedback">
         <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <!-- Category options -->
       <div class="form-group">
         <label>Category</label>
         <select class="form-control select2" name="category" style="width: 100%;">
@@ -69,6 +82,7 @@
       <!-- /.form-group -->
       <div class="row">
         <div class="col-xs-12">
+          <!-- Submit button to register -->
           <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
         </div>
       </div>

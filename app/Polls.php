@@ -1,3 +1,10 @@
+<!-- 
+
+	Model: Polls Model
+	To handle every polls created
+
+ -->
+
 <?php
 
 namespace App;

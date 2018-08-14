@@ -1,3 +1,10 @@
+<!-- 
+
+    Migration Table: Users    
+    Table to save Users Data
+
+-->
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -14,13 +21,14 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('category');
+            $table->increments('id');               // User Id
+            $table->string('username')->unique();   // Username
+            $table->string('email')->unique();      // Email
+            $table->string('password');             // Password
+            $table->integer('category');            // Category: 1 for Administrator, 0 for Basic User
         });
 
+        // Inser dummy data for Administrator and Basic User, one data for each
         DB::table('users')->insert([
             [
                 'username' => 'admin', 

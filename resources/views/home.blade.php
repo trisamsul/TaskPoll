@@ -1,3 +1,12 @@
+<!-- 
+
+  View Pages : Home
+  
+  This is the first landing page
+  Show the table that contain the polling list
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,8 +52,10 @@
           </tr>
         </thead>
         <tbody>
+          <!-- If there's collected vote data -->
           @if(count($polls) > 0)
             <?php $no = 1; $i = 0?>
+            <!-- Show each of the polls data -->
             @foreach($polls->all() as $poll)
               <tr>
                 <td>{{ $no++ }}</td>

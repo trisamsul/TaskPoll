@@ -1,3 +1,10 @@
+<!-- 
+
+    Migration Table: Polls Votes
+    Table to save votes data for every Poll
+
+-->
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +21,10 @@ class CreatePollsVotesTable extends Migration
     public function up()
     {
         Schema::create('polls_votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('poll_id');
-            $table->integer('option_id');
-            $table->integer('user_id');
+            $table->increments('id');       // Vote Id
+            $table->integer('poll_id');     // Poll Id
+            $table->integer('option_id');   // Option Id
+            $table->integer('user_id');     // User Id (User that committed this vote)
         });
     }
 

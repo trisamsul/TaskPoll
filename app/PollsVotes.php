@@ -1,3 +1,10 @@
+<!-- 
+
+	Model: Polls Votes Model
+	To handle every votes committed for every polls
+
+ -->
+
 <?php
 
 namespace App;

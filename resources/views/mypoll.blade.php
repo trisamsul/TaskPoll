@@ -1,3 +1,12 @@
+<!-- 
+
+  View Pages : My Polling
+  
+  This is the page to see administrator own polling
+  Show the table that contain the polling list
+
+-->
+
 @include('templates.header')
 
   <!-- Content Wrapper. Contains page content -->
@@ -45,8 +54,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- If there's collected polls data  -->
                   @if(count($polls) > 0)
                     <?php $no = 1; ?>
+                    <!-- Show each data of the polls -->
                     @foreach($polls->all() as $poll)
                       <tr>
                         <td>{{ $no++ }}</td>
@@ -58,10 +69,13 @@
                         @endif
                         <td>
                           @if($poll->status == 1)
+                          <!-- if the current status of the poll is open, show the close button -->
                           <a class="btn btn-default bg-red" href="{{ url('/closepoll/'.$poll->id) }}"><i class="fa fa-close" style="margin-right: 5px;"></i> <small>CLOSE</small></a>
                           @else
+                          <!-- if the current status of the poll is closed, show the open button -->
                           <a class="btn btn-default bg-green" href="{{ url('/openpoll/'.$poll->id) }}"><i class="fa fa-check" style="margin-right: 5px;"></i> <small>OPEN</small></a>
                           @endif
+                          <!-- button to show the details of the poll -->
                           <a class="btn btn-default bg-purple" href="{{ url('/detail/'.$poll->id ) }}"><i class="fa fa-pie-chart" style="margin-right: 5px;"></i> DETAILS</a>
                         </td>
                       </tr>

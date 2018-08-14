@@ -1,3 +1,10 @@
+<!-- 
+
+    Model: User Model
+    To handle user data
+
+ -->
+
 <?php
 
 namespace App;

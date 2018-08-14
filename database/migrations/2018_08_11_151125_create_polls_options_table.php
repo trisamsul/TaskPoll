@@ -1,3 +1,10 @@
+<!-- 
+
+    Migration Table: Polls Options
+    Table to save Polls Options
+
+-->
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +21,10 @@ class CreatePollsOptionsTable extends Migration
     public function up()
     {
         Schema::create('polls_options', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('poll_id');
-            $table->string('text');
-            $table->integer('voted')->default(0);
+            $table->increments('id');               // Option Id
+            $table->integer('poll_id');             // Poll Id
+            $table->string('text');                 // Option text
+            $table->integer('voted')->default(0);   // Option number of votes result
         });
     }
 

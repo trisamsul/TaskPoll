@@ -1,3 +1,10 @@
+<!-- 
+
+    Migration Table: Polls
+    Table to save Polls Data
+
+-->
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +21,10 @@ class CreatePollsTable extends Migration
     public function up()
     {
         Schema::create('polls', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->string('title');
-            $table->integer('status');
+            $table->increments('id');   // Poll Id
+            $table->integer('user_id'); // User Id (Poll Owner Id)
+            $table->string('title');    // Poll Title
+            $table->integer('status');  // Poll status: 1 for open, 0 for closed
         });
     }
 

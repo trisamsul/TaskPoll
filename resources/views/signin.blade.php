@@ -1,3 +1,11 @@
+<!-- 
+
+  View Pages : Sign In
+  
+  This is page is sign in form
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,10 +62,12 @@
           </div>
         @endforeach
       @endif
+      <!-- Username text field -->
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="username" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+      <!-- Password text field -->
       <div class="form-group has-feedback">
         <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -71,6 +81,7 @@
           </div>
         </div> -->
         <!-- /.col -->
+        <!-- Submit Button -->
         <div class="col-xs-12">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>

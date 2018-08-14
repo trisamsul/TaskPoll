@@ -287,25 +287,32 @@
 </script>
 
 @if(Request::segments(0)[0] == 'detail')
+<!-- if the current page is 'detail' page, then load this script to show the charts-->
 <!-- ChartJS -->
 <script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
 
 <script>
+  // gather the data for every options of the current polling
   var data =  <?=json_encode($options)?>;
   var elements = [];
 
+  // inserting all collected options data to pie charts data
   for (var i = 0; i < data.length; i++) {
       counter = data[i];
-      var number = counter.voted;
-      var col = getRandomColor();
+      var number = counter.voted; // get the number of vote for this options
+      var col = getRandomColor(); // get random color value for the pie charts
 
+      // get the id of the options list
       var j = +i+1;
       var id = "opt" + j;
 
+      // show log in the console if there's some error occured
       console.log(id);
 
+      // set the options list background color
       document.getElementById(id).style.backgroundColor = col;
 
+      // put the pie charts data into variable elements
       elements.push({
           value: number,
           color: col,
@@ -313,13 +320,16 @@
       })
   }
 
+  // collected data elements as data for the pie chart
   var doughnutData = elements;
 
+  // if the window open, then load the charts
   window.onload = function(){
     var ctx = document.getElementById("chart-area").getContext("2d");
     window.myDoughnut = new Chart(ctx).Pie(doughnutData, {responsive : true});
   };
 
+  // method to get random color value
   function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';

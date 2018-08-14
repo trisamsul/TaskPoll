@@ -1,6 +1,17 @@
+<!-- 
+
+  View Pages : Add Poll
+  
+  This is a page to add a new polling
+  This page is only available for Administrator
+
+-->
+
 @include('templates.header')
   
   <style>
+    /* Styling for polling options using radio button */
+
     .funkyradio div {
       clear: both;
       overflow: hidden;
@@ -114,6 +125,7 @@
               {{ csrf_field() }}
               <!-- /.box-header -->
               <div class="box-body">
+                <!-- Alert if there's error occured -->
                 @if(count($errors) > 0)
                   @foreach($errors->all() as $error)
                     <div class="alert alert-danger">
@@ -121,23 +133,32 @@
                     </div>
                   @endforeach
                 @endif
+                <!-- Form -->
                 <div class="form-group">
                   <label>Poll Title</label>
+                  <!-- Poll Title -->
                   <input type="text" class="form-control" name="title" placeholder="Poll Title">
                 </div>
                 <div class="form-group">
+                  <!-- Poll Options -->
                   <label>Poll Options</label>
+
+                  <!-- Button to add a new options -->
                   <a class="pull-right btn btn-default bg-green" href="#" id="addBtn" onclick="addOption()"><i class="fa fa-plus" style="margin-right: 5px;"></i> Add</a> 
+                  <!-- Button to remove the last options -->
                   <a class="pull-right btn btn-default bg-red" style="margin-right: 5px;" href="#" id="remBtn" onclick="removeOption()"><i class="fa fa-trash" style="margin-right: 5px;"></i> Remove</a>
                 </div>
                 <div class="form-group" id="options-list">
+                  <!-- Options -->
                   <input type="text" class="form-control" id="opt1" name="option1" style="margin-bottom: 5px;" placeholder="Option #1">
                   <input type="text" class="form-control" id="opt2" name="option2" style="margin-bottom: 5px;" placeholder="Option #2">
                   <input type="text" class="form-control" id="opt3" name="option3" style="margin-bottom: 5px;" placeholder="Option #3">
                 </div><!-- /input-group -->
               </div>
               <div class="box-footer clearfix">
+                <!-- Hidden value to save number of options -->
                 <input type="hidden" name="number" id="number" value="3">
+                <!-- Button to submit a new poll -->
                 <input type="submit" class="pull-right btn btn-primary bg-green" id="vote" value="Add New Poll"/>
               </div>
             </form>
@@ -157,6 +178,8 @@
       // Container <div> where dynamic content will be placed
       var container = document.getElementById("options-list");
       var number = document.getElementById("number").value;
+      
+      // increase the number of the options
       var newnumber = +number + 1;
 
       // Create an <input> element, set its type and name attributes
@@ -168,10 +191,12 @@
       input.style = "margin-bottom: 5px;";
       input.classList.add("form-control");
 
+      // Add the new element to the options list 
       container.appendChild(input);
 
       document.getElementById("number").value = newnumber;
 
+      // if the number of the options are more or equal to 3, the remove button will be displayed
       if(document.getElementById("number").value >= 3){
         document.getElementById("remBtn").style.display = "block";
       }
@@ -182,12 +207,15 @@
       var container = document.getElementById("options-list");
       var number = document.getElementById("number").value;
       
+      // get the last options id and then remove it from the options list
       var element = document.getElementById("opt" + number);
       element.parentNode.removeChild(element);
 
+      // reduce the number of the options
       var newnumber = +number - 1;
       document.getElementById("number").value = newnumber;
 
+      // if the number of the options are less than 3, the remove button will be hidden
       if(document.getElementById("number").value < 3){
         document.getElementById("remBtn").style.display = "none";
       }

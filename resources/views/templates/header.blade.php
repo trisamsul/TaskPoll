@@ -120,8 +120,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
+        <!-- Set the menu as active when the page is 'dashboard' -->
         <li class="<?php if(Request::segments(0)[0] == 'dashboard') echo "active"; ?>"><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         @if(session()->get('category') == 1)
+        <!-- Set the menu as active when the page is 'mypoll' or 'addpoll' -->
         <li class="treeview <?php if(Request::segments(0)[0] == 'mypoll' || Request::segments(0)[0] == 'addpoll') echo "active"; ?>">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -131,7 +133,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <!-- Set the menu as active when the page is 'mypoll' -->
             <li class="<?php if(Request::segments(0)[0] == 'mypoll') echo "active"; ?>"><a href="{{ url('/mypoll') }}"><i class="fa fa-bars"></i> Polling List</a></li>
+            <!-- Set the menu as active when the page is 'addpoll' -->
             <li class="<?php if(Request::segments(0)[0] == 'addpoll') echo "active"; ?>"><a href="{{ url('/addpoll') }}"><i class="fa fa-plus"></i> Add New Polling</a></li>
           </ul>
         </li>

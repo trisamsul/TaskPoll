@@ -1,3 +1,11 @@
+<!-- 
+
+  View Pages : Need Sign In
+  
+  This is the redirect page for the users that they have to sign in to access several pages
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>

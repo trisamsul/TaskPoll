@@ -1,6 +1,16 @@
+<!-- 
+
+  View Pages : Vote
+  
+  This is page is to submit the vote for the selected poll
+
+-->
+
 @include('templates.header')
 
   <style>
+    /* Styling for the options shown as radio button */
+
     .funkyradio div {
       clear: both;
       overflow: hidden;
@@ -116,8 +126,10 @@
               <!-- /.box-header -->
               <div class="box-body">
                 <div class="funkyradio">
+                  <!-- If there's any options data collected -->
                   @if(count($options) > 0)
                     <?php $no = 1; ?>
+                    <!-- Show each data of the options -->
                     @foreach($options->all() as $option)
                       <div class="funkyradio-primary">
                           <input type="radio" name="option_id" id="radio{{$no}}" value="{{ $option->id }}"/>
@@ -129,8 +141,11 @@
                 </div>
               </div>
               <div class="box-footer clearfix">
+                <!-- Hidden field to save current poll id -->
                 <input type="hidden" name="poll_id" value="{{ $poll->id }}">
+                <!-- Hidden field to save current user id -->
                 <input type="hidden" name="user_id" value="{{ session()->get('id') }}">
+                <!-- Submit button -->
                 <button type="submit" class="pull-right btn btn-default bg-green" id="vote" >Submit</button>
               </div>
             </form>

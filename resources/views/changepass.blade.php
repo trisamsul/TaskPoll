@@ -1,3 +1,11 @@
+<!-- 
+
+  View Pages : Change Password
+  
+  This is a page to change the password
+
+-->
+
 @include('templates.header')
   
   <style>
